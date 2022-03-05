@@ -20,57 +20,11 @@ namespace vending_machine2
     /// </summary>
     public partial class MainWindow : Window
     {
-        VendingMachine vendingMachine = new VendingMachine();
-        //DB db;
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void cola_Click(object sender, RoutedEventArgs e)
-        {
-            vendingMachine.subtractCash(vendingMachine.getColaPrice());
-        }
-
-        private void fanta_Click(object sender, RoutedEventArgs e)
-        {
-            vendingMachine.subtractCash(vendingMachine.getFantaPrice());
-        }
-
-        private void sprite_Click(object sender, RoutedEventArgs e)
-        {
-            vendingMachine.subtractCash(vendingMachine.getSpritePrice());
-        }
-
-        private void monster_Click(object sender, RoutedEventArgs e)
-        {
-            vendingMachine.subtractCash(vendingMachine.getMonsterPrice());
-        }
-
-        private void lipton_Click(object sender, RoutedEventArgs e)
-        {
-            vendingMachine.subtractCash(vendingMachine.getLiptonPrice());
-        }
-
-        private void water_Click(object sender, RoutedEventArgs e)
-        {
-            vendingMachine.subtractCash(vendingMachine.getWaterPrice());
-        }
-
-        private void addCashToVendingMachine_Click(object sender, RoutedEventArgs e)
-        {
-            vendingMachine.addCash(5.0);
-        }
-
-        private void drinkOne_Click(object sender, RoutedEventArgs e)
-        {
-            //usun jeden losowy rekord z bazy
-        }
-
-        private void drinkAll_Click(object sender, RoutedEventArgs e)
-        {
-            //usun wszystkie rekordy z bazy
-        }
     }
 }
