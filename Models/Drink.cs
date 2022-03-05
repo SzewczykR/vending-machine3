@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace vending_machine2.Models
 {
-    public class Drink : VendingMachineItem
+    public class DrinkVM : VendingMachineItem
     {
         public double Capacity { get; set; }
     }

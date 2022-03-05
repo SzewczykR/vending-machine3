@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace vending_machine2.Models
 {
-    public class Cash
+    public class CashVM
     {
         [Key]
         public int Id { get; set; }

@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace vending_machine2.Models
 {
-    public class VendingMachine
+    public class VendingMachineVM
     {
 
         [Key]
         public int Id { get; set; }
-        public Cash Cash { get; set; }
-        public List<Drink> Drinks { get; set; } = new List<Drink>();
+        public CashVM Cash { get; set; }
+        public List<DrinkVM> Drinks { get; set; } = new List<DrinkVM>();
 
     }
 }

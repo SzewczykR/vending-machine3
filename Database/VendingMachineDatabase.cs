@@ -10,32 +10,32 @@ namespace vending_machine2.Database
 {
     public class VendingMachineDatabase : DbContext
     {
-        public DbSet<VendingMachine> VendingMachines { get; set; }
-        public DbSet<Drink> Drinks { get; set; }
-        public DbSet<Cash> Cashes { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<VendingMachineVM> VendingMachines { get; set; }
+        public DbSet<DrinkVM> Drinks { get; set; }
+        public DbSet<CashVM> Cashes { get; set; }
+        public DbSet<UserVM> Users { get; set; }
 
     public void Initialize()
         {
             ClearAll();
 
-            VendingMachines.Add(new VendingMachine()
+            VendingMachines.Add(new VendingMachineVM()
             {
-                Drinks = new List<Drink>()
+                Drinks = new List<DrinkVM>()
                 {
-                    new Drink() {Name = "Cola", Price = 3.49 , Capacity = 500},
-                    new Drink() { Name = "Fanta", Price = 3.89 , Capacity = 500},
-                    new Drink() { Name = "Sprite", Price = 3.29 , Capacity = 500},
-                    new Drink() { Name = "Monster", Price = 6.69, Capacity = 500 },
-                    new Drink() { Name = "Lipton", Price = 4.20, Capacity = 330 },
-                    new Drink() { Name = "Water", Price = 2.80, Capacity = 330 }
+                    new DrinkVM() {Name = "Cola", Price = 3.49 , Capacity = 500},
+                    new DrinkVM() { Name = "Fanta", Price = 3.89 , Capacity = 500},
+                    new DrinkVM() { Name = "Sprite", Price = 3.29 , Capacity = 500},
+                    new DrinkVM() { Name = "Monster", Price = 6.69, Capacity = 500 },
+                    new DrinkVM() { Name = "Lipton", Price = 4.20, Capacity = 330 },
+                    new DrinkVM() { Name = "Water", Price = 2.80, Capacity = 330 }
                 },
-                Cash = new Cash() { Amount = 100 }
+                Cash = new CashVM() { Amount = 100 }
             });
 
-            Users.Add(new User()
+            Users.Add(new UserVM()
             {
-                Cash = new Cash() { Amount = 100 }
+                Cash = new CashVM() { Amount = 100 }
             });
 
             SaveChanges();
@@ -61,18 +61,18 @@ namespace vending_machine2.Database
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<VendingMachine>(e =>
+            modelBuilder.Entity<VendingMachineVM>(e =>
             {
                 e.HasKey(e => e.Id);
                 e.HasOne(e => e.Cash);
                 e.HasMany(e => e.Drinks);
             });
 
-            modelBuilder.Entity<Drink>().HasKey(d => d.Id);
-            modelBuilder.Entity<Cash>().HasKey(c => c.Id);
+            modelBuilder.Entity<DrinkVM>().HasKey(d => d.Id);
+            modelBuilder.Entity<CashVM>().HasKey(c => c.Id);
 
 
-            modelBuilder.Entity<User>(e =>
+            modelBuilder.Entity<UserVM>(e =>
             {
                 e.HasKey(e => e.Id);
                 e.HasOne(e => e.Cash);
