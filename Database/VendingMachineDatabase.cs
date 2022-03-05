@@ -15,6 +15,12 @@ namespace vending_machine2.Database
         public DbSet<Cash> Cashes { get; set; }
         public DbSet<User> Users { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Data Source=:..\\..\\Database\\VendingMachine.db");
+            base.OnConfiguring(optionsBuilder);
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
