@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using vending_machine2.Database;
 
 namespace vending_machine2
 {
@@ -23,7 +24,66 @@ namespace vending_machine2
 
         public MainWindow()
         {
+            using VendingMachineDatabase dbContext = new VendingMachineDatabase();
+
+            dbContext.Database.EnsureCreated();
             InitializeComponent();
+        }
+
+
+
+
+
+
+
+        private void cola_Click(object sender, RoutedEventArgs e)
+        {
+            //   vendingMachine.subtractCash(vendingMachine.getColaPrice());
+        }
+
+        private void fanta_Click(object sender, RoutedEventArgs e)
+        {
+            //  vendingMachine.subtractCash(vendingMachine.getFantaPrice());
+        }
+
+        private void sprite_Click(object sender, RoutedEventArgs e)
+        {
+            // vendingMachine.subtractCash(vendingMachine.getSpritePrice());
+        }
+
+        private void monster_Click(object sender, RoutedEventArgs e)
+        {
+            //  vendingMachine.subtractCash(vendingMachine.getMonsterPrice());
+        }
+
+        private void lipton_Click(object sender, RoutedEventArgs e)
+        {
+            //  vendingMachine.subtractCash(vendingMachine.getLiptonPrice());
+        }
+
+        private void water_Click(object sender, RoutedEventArgs e)
+        {
+            // vendingMachine.subtractCash(vendingMachine.getWaterPrice());
+        }
+
+        private void addCashToVendingMachine_Click(object sender, RoutedEventArgs e)
+        {
+            //  vendingMachine.addCash(5.0);
+        }
+
+        private void drinkOne_Click(object sender, RoutedEventArgs e)
+        {
+            //usun jeden losowy rekord z bazy
+        }
+
+        private void drinkAll_Click(object sender, RoutedEventArgs e)
+        {
+            //usun wszystkie rekordy z bazy
+        }
+
+        private void listDrinks_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
     }

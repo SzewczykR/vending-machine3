@@ -15,6 +15,42 @@ namespace vending_machine2.Database
         public DbSet<Cash> Cashes { get; set; }
         public DbSet<User> Users { get; set; }
 
+    public void Initialize()
+        {
+            ClearAll();
+
+            VendingMachines.Add(new VendingMachine()
+            {
+                Drinks = new List<Drink>()
+                {
+                    new Drink() {Name = "Cola", Price = 3.49 , Capacity = 500},
+                    new Drink() { Name = "Fanta", Price = 3.89 , Capacity = 500},
+                    new Drink() { Name = "Sprite", Price = 3.29 , Capacity = 500},
+                    new Drink() { Name = "Monster", Price = 6.69, Capacity = 500 },
+                    new Drink() { Name = "Lipton", Price = 4.20, Capacity = 330 },
+                    new Drink() { Name = "Water", Price = 2.80, Capacity = 330 }
+                },
+                Cash = new Cash() { Amount = 100 }
+            });
+
+            Users.Add(new User()
+            {
+                Cash = new Cash() { Amount = 100 }
+            });
+
+            SaveChanges();
+        }
+
+        private void ClearAll()
+        {
+            Drinks.RemoveRange(Drinks);
+            Cashes.RemoveRange(Cashes);
+            Users.RemoveRange(Users);
+            VendingMachines.RemoveRange(VendingMachines);
+
+            SaveChanges();
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source=:..\\..\\Database\\VendingMachine.db");
