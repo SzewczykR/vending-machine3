@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace vending_machine2
+namespace vending_machine2.Models
 {
-    public class User
+    public abstract class VendingMachineItem
     {
         [Key]
         public int Id { get; set; } 
-        public Cash Cash { get; set; }
-        public List<Drink> Drinks { get; set; } = new List<Drink>();
+        public string Name { get; set; }
+        public double Price { get; set; }   
     }
 }
