@@ -14,5 +14,31 @@ namespace vending_machine2.Database
         public DbSet<Drink> Drinks { get; set; }
         public DbSet<Cash> Cashes { get; set; }
         public DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<VendingMachine>(e =>
+            {
+                e.HasKey(e => e.Id);
+                e.HasOne(e => e.Cash);
+                e.HasMany(e => e.Drinks);
+            });
+
+            modelBuilder.Entity<Drink>().HasKey(d => d.Id);
+            modelBuilder.Entity<Cash>().HasKey(c => c.Id);
+
+
+            modelBuilder.Entity<User>(e =>
+            {
+                e.HasKey(e => e.Id);
+                e.HasOne(e => e.Cash);
+                e.HasMany(e => e.Drinks);
+            });
+
+        }
+
+
     }
 }
