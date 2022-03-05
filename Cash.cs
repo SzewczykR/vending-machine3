@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,17 +9,9 @@ namespace vending_machine2
 {
     public class Cash
     {
-        public double amount { get; set; } = 0;
+        [Key]
+        public int Id { get; set; }
 
-
-        public void addCash(double amount)
-        {
-            this.amount = this.amount + amount;
-        }
-
-        public void subtractCash(double amount)
-        {
-            this.amount = this.amount - amount;
-        }
+        public double Amount { get; set; }  
     }
 }
