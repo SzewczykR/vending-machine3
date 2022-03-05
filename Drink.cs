@@ -6,16 +6,8 @@ using System.Threading.Tasks;
 
 namespace vending_machine2
 {
-    public class Drink
+    public class Drink : VendingMachineItem
     {
-        public string name { get; }
-        public double price { get; }
-
-        public Drink(string name, double price)
-        {
-            this.name = name;
-            this.price = price;
-        }
-
+        public double Capacity { get; set; }
     }
 }
